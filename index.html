@@ -180,40 +180,6 @@ a{color:inherit}
 .fit-list b{font-weight:700}
 .tick{width:18px;height:18px;flex:none;margin-top:.22rem}
 
-/* pricing */
-.pricing{background:var(--paper)}
-.tiers{display:grid;gap:0;border-top:1px solid var(--line)}
-.tier{
-  display:grid;gap:.9rem 2.2rem;padding-block:2.1rem;border-bottom:1px solid var(--line);
-  align-items:start;
-}
-@media(min-width:900px){
-  .tier{grid-template-columns:14rem 1fr 11rem}
-}
-.tier-name{margin:0;font-size:1.22rem;font-weight:800;letter-spacing:-.02em;line-height:1.2}
-.tier-when{margin:.3rem 0 0;font-size:.88rem;color:#666}
-.tier-body p{margin:0 0 .7rem;color:#333;max-width:var(--measure)}
-.tier-body ul{margin:0;padding-left:1.05rem;color:#555;font-size:.93rem}
-.tier-body li{margin-bottom:.22rem}
-.tier-price{display:flex;flex-direction:column;gap:.15rem}
-.tier-price .amount{font-weight:900;font-size:1.75rem;letter-spacing:-.035em;line-height:1}
-.tier-price .unit{font-size:.83rem;color:#666;font-weight:500}
-.tier-price .term{font-size:.83rem;color:#666}
-.tier--lead{border-left:4px solid var(--green);padding-left:1.15rem}
-.tier--lead .tier-price .amount{color:var(--green-deep)}
-@media(min-width:900px){
-  .tier--lead{margin-left:-1.15rem}
-}
-.tier-flag{
-  display:inline-block;margin-top:.5rem;font-size:.78rem;font-weight:700;color:var(--green-deep);
-}
-.rate{
-  margin-top:2.25rem;padding:1.5rem 1.6rem;background:var(--panel);border-left:4px solid var(--ink);
-}
-.rate h3{margin:0 0 .5rem;font-size:1.05rem;font-weight:800;letter-spacing:-.02em}
-.rate p{margin:0;color:#3a3a3a;font-size:.96rem;max-width:44rem}
-.rate strong{font-weight:800}
-
 /* CTA */
 .cta{background:var(--ink);color:#fff;padding-block:clamp(3rem,7vw,4.75rem)}
 .cta-grid{display:grid;gap:2rem;align-items:center}
@@ -266,7 +232,6 @@ a{color:inherit}
 
     <nav class="head-nav" aria-label="Main">
       <a href="#services">Services</a>
-      <a href="#pricing">Pricing</a>
       <a href="#process">How it works</a>
       <a href="#fit">Who we work with</a>
     </nav>
@@ -367,109 +332,6 @@ a{color:inherit}
     </div>
   </section>
 
-  <!-- ============ PRICING ============ -->
-  <section class="band pricing" id="pricing">
-    <div class="wrap">
-      <div class="band-head">
-        <h2>What it costs</h2>
-        <p>Fixed scope, fixed price. You approve the number before work starts, and it does not move unless you change what you asked for.</p>
-      </div>
-
-      <div class="tiers">
-
-        <article class="tier tier--lead">
-          <div>
-            <h3 class="tier-name">Cloud assessment</h3>
-            <p class="tier-when">1 to 2 weeks</p>
-            <span class="tier-flag">Where most engagements start</span>
-          </div>
-          <div class="tier-body">
-            <p>A full read of what you are running today and what it is costing you, delivered as a written report you own outright.</p>
-            <ul>
-              <li>Inventory of workloads, accounts, and spend</li>
-              <li>Security and identity findings ranked by actual risk</li>
-              <li>Prioritized roadmap with cost estimates per item</li>
-              <li>Ninety-minute walkthrough with your team</li>
-            </ul>
-          </div>
-          <div class="tier-price">
-            <span class="amount">$2,500</span>
-            <span class="unit">fixed</span>
-            <span class="term">Credited against the work if you continue</span>
-          </div>
-        </article>
-
-        <article class="tier">
-          <div>
-            <h3 class="tier-name">Migration</h3>
-            <p class="tier-when">6 to 12 weeks, scoped per project</p>
-          </div>
-          <div class="tier-body">
-            <p>Moving workloads onto AWS or Azure, including the foundations underneath them. Priced after the assessment, once we know what is actually there.</p>
-            <ul>
-              <li>Landing zone, identity, and network build</li>
-              <li>Workload migration in approved stages</li>
-              <li>Cutover planning and execution</li>
-              <li>Runbooks and handover to your team</li>
-            </ul>
-          </div>
-          <div class="tier-price">
-            <span class="amount">From $12,000</span>
-            <span class="unit">per project</span>
-            <span class="term">Billed against milestones, not hours</span>
-          </div>
-        </article>
-
-        <article class="tier">
-          <div>
-            <h3 class="tier-name">Security review</h3>
-            <p class="tier-when">2 to 4 weeks</p>
-          </div>
-          <div class="tier-body">
-            <p>For environments that are already live. We find what is exposed, fix what we can, and document the rest so your team or your auditor can act on it.</p>
-            <ul>
-              <li>Identity, access, and permission review across accounts</li>
-              <li>Configuration and posture assessment against a named framework</li>
-              <li>Remediation of agreed high-priority findings</li>
-              <li>Evidence pack suitable for audit</li>
-            </ul>
-          </div>
-          <div class="tier-price">
-            <span class="amount">From $6,500</span>
-            <span class="unit">fixed</span>
-            <span class="term">Scope set after a short call</span>
-          </div>
-        </article>
-
-        <article class="tier">
-          <div>
-            <h3 class="tier-name">Ongoing support</h3>
-            <p class="tier-when">Monthly, cancel with 30 days notice</p>
-          </div>
-          <div class="tier-body">
-            <p>For teams who want an architect on call after the build is done. A set number of hours each month for changes, reviews, and questions.</p>
-            <ul>
-              <li>Twenty hours per month of architecture and engineering time</li>
-              <li>Monthly cost and security review</li>
-              <li>Direct access by email and shared channel</li>
-            </ul>
-          </div>
-          <div class="tier-price">
-            <span class="amount">$3,200</span>
-            <span class="unit">per month</span>
-            <span class="term">Unused hours do not roll over</span>
-          </div>
-        </article>
-
-      </div>
-
-      <div class="rate">
-        <h3>Prefer to work hourly?</h3>
-        <p>Some projects are too open-ended to price up front. For those we bill at <strong>$165 per hour</strong>, invoiced every two weeks with a written summary of what was done. We will tell you honestly which model fits your situation better — fixed price is usually cheaper for you when the scope is clear.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- ============ PROCESS ============ -->
   <section class="band" id="process" style="background:var(--paper)">
     <div class="wrap">
@@ -550,7 +412,6 @@ a{color:inherit}
     <div>NOUVO tech Cloud Solutions — Tampa, Florida</div>
     <nav class="foot-links" aria-label="Footer">
       <a href="#services">Services</a>
-      <a href="#pricing">Pricing</a>
       <a href="#process">How it works</a>
       <a href="#contact">Contact</a>
       <a href="https://www.linkedin.com">LinkedIn</a>
