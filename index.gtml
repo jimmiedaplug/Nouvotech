@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NOUVO tech Cloud Solutions — AWS &amp; Azure consulting for mid-market companies</title>
+<meta name="description" content="Cloud migration, security, and cost optimization on AWS and Azure. Built for companies too big for a generalist MSP and too small for a Big Four engagement.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#8CC63F;
+  --green-deep:#6FA52A;
+  --ink:#000000;
+  --gray:#939598;
+  --gray-soft:#C9CBCC;
+  --paper:#FFFFFF;
+  --panel:#F3F4F1;
+  --line:#E2E4E0;
+
+  --measure:34rem;
+  --gut:clamp(1.25rem, 5vw, 4.5rem);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:Archivo,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+
+.wrap{max-width:1180px;margin:0 auto;padding-inline:var(--gut)}
+
+/* ---------------- header ---------------- */
+.site-head{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:saturate(180%) blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.head-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.85rem}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.brand .mark{width:26px;height:30px;flex:none}
+.brand .word{font-weight:900;font-size:1.12rem;letter-spacing:-.025em;line-height:1}
+.brand .word em{font-style:normal;font-weight:700;color:var(--green-deep)}
+.brand .sub{
+  display:block;font-weight:500;font-size:.5rem;letter-spacing:.34em;
+  color:var(--gray);margin-top:.22rem;
+}
+.head-nav{display:none;gap:2rem;font-size:.92rem;font-weight:500}
+.head-nav a{text-decoration:none;color:#333;padding-block:.3rem;border-bottom:2px solid transparent}
+.head-nav a:hover,.head-nav a:focus-visible{color:#000;border-bottom-color:var(--green)}
+.head-cta{
+  display:inline-block;background:var(--ink);color:#fff;text-decoration:none;
+  font-weight:700;font-size:.88rem;padding:.62rem 1.05rem;border-radius:2px;white-space:nowrap;
+}
+.head-cta:hover{background:var(--green-deep)}
+@media(min-width:900px){ .head-nav{display:flex} }
+
+/* ---------------- hero ---------------- */
+.hero{padding-block:clamp(2.75rem,7vw,5.5rem) clamp(2.5rem,6vw,4.5rem)}
+.hero-grid{display:grid;gap:clamp(2rem,5vw,3.5rem);align-items:center}
+@media(min-width:960px){ .hero-grid{grid-template-columns:1.08fr .92fr} }
+
+.hero h1{
+  margin:0 0 1.15rem;
+  font-weight:900;
+  font-size:clamp(2.35rem,7.2vw,4.15rem);
+  line-height:.97;
+  letter-spacing:-.036em;
+  max-width:13ch;
+}
+.hero h1 .rule{
+  display:block;width:56px;height:8px;background:var(--green);margin-bottom:1.35rem;
+}
+.hero p{margin:0 0 1.9rem;font-size:clamp(1.02rem,2.4vw,1.16rem);color:#2E2E2E;max-width:var(--measure)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{
+  display:inline-block;text-decoration:none;font-weight:700;font-size:.97rem;
+  padding:.88rem 1.5rem;border-radius:2px;border:2px solid var(--ink);
+}
+.btn-solid{background:var(--ink);color:#fff}
+.btn-solid:hover{background:var(--green-deep);border-color:var(--green-deep)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-ghost:hover{background:var(--panel)}
+
+/* dot field visual */
+.field{width:100%;height:auto}
+.field circle{opacity:0}
+.anim .field circle{animation:pop .5s cubic-bezier(.2,.8,.3,1) forwards}
+@keyframes pop{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:scale(1)}}
+.field .legacy{fill:var(--gray-soft)}
+.field .mid{fill:var(--gray)}
+.field .cloud{fill:var(--green)}
+.field .core{fill:var(--ink)}
+.field-key{
+  display:flex;gap:1.4rem;flex-wrap:wrap;margin-top:1rem;
+  font-size:.79rem;color:#555;font-weight:500;
+}
+.field-key span{display:flex;align-items:center;gap:.42rem}
+.field-key i{width:9px;height:9px;border-radius:50%;display:block}
+@media(prefers-reduced-motion:reduce){
+  .field circle{opacity:1!important;animation:none!important}
+}
+
+/* ---------------- credentials ---------------- */
+.creds{border-block:1px solid var(--line);background:var(--panel)}
+.creds-inner{padding-block:1.6rem}
+.creds h2{
+  margin:0 0 1rem;font-size:.95rem;font-weight:700;color:#3a3a3a;letter-spacing:-.01em;
+}
+.creds ul{list-style:none;margin:0;padding:0;display:grid;gap:.7rem}
+@media(min-width:720px){ .creds ul{grid-template-columns:repeat(4,1fr);gap:1.4rem} }
+.creds li{
+  font-size:.92rem;font-weight:600;line-height:1.35;
+  padding-left:.95rem;border-left:3px solid var(--green);
+}
+.creds li small{display:block;font-weight:500;font-size:.78rem;color:#6a6a6a;margin-top:.15rem}
+
+/* ---------------- sections ---------------- */
+.band{padding-block:clamp(3.25rem,8vw,5.5rem)}
+.band-head{max-width:40rem;margin-bottom:clamp(2rem,4vw,3rem)}
+.band-head h2{
+  margin:0 0 .85rem;font-weight:800;letter-spacing:-.03em;line-height:1.05;
+  font-size:clamp(1.85rem,4.6vw,2.7rem);
+}
+.band-head p{margin:0;color:#3a3a3a;font-size:1.04rem}
+
+/* services — asymmetric, not a card kit */
+.svc{display:grid;gap:0;border-top:1px solid var(--line)}
+.svc-item{
+  display:grid;gap:.45rem 2rem;padding-block:1.9rem;border-bottom:1px solid var(--line);
+}
+@media(min-width:840px){
+  .svc-item{grid-template-columns:auto 15rem 1fr;align-items:start}
+}
+.svc-dots{display:flex;gap:5px;padding-top:.45rem}
+.svc-dots i{width:9px;height:9px;border-radius:50%;background:var(--gray-soft);display:block}
+.svc-item:nth-child(1) .svc-dots i:nth-child(1),
+.svc-item:nth-child(2) .svc-dots i:nth-child(-n+2),
+.svc-item:nth-child(3) .svc-dots i:nth-child(-n+3){background:var(--green)}
+.svc-item h3{margin:0;font-size:1.22rem;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+.svc-item p{margin:0;color:#333;max-width:var(--measure)}
+.svc-item ul{margin:.6rem 0 0;padding-left:1.05rem;color:#555;font-size:.93rem}
+.svc-item li{margin-bottom:.22rem}
+
+/* process — genuinely sequential, so numbers earn their place */
+.steps{counter-reset:step;display:grid;gap:1.6rem}
+@media(min-width:860px){ .steps{grid-template-columns:repeat(4,1fr);gap:1.9rem} }
+.step{counter-increment:step;padding-top:1.1rem;border-top:3px solid var(--ink)}
+.step:nth-child(4){border-top-color:var(--green)}
+.step::before{
+  content:counter(step,decimal-leading-zero);
+  display:block;font-weight:900;font-size:.95rem;letter-spacing:-.02em;color:var(--green-deep);
+  margin-bottom:.5rem;
+}
+.step h3{margin:0 0 .4rem;font-size:1.05rem;font-weight:800;letter-spacing:-.02em}
+.step p{margin:0;font-size:.93rem;color:#444}
+
+/* positioning */
+.fit{background:var(--panel);border-block:1px solid var(--line)}
+.fit-grid{display:grid;gap:2.5rem}
+@media(min-width:880px){ .fit-grid{grid-template-columns:1fr 1fr;gap:4rem} }
+.fit h2{margin:0 0 1rem;font-weight:800;font-size:clamp(1.7rem,4vw,2.3rem);letter-spacing:-.03em;line-height:1.1}
+.fit p{margin:0 0 1rem;color:#333}
+.fit-list{list-style:none;margin:0;padding:0}
+.fit-list li{
+  display:flex;gap:.8rem;align-items:flex-start;padding-block:.75rem;border-bottom:1px solid var(--line);
+  font-size:.97rem;
+}
+.fit-list li:last-child{border-bottom:0}
+.fit-list b{font-weight:700}
+.tick{width:18px;height:18px;flex:none;margin-top:.22rem}
+
+/* pricing */
+.pricing{background:var(--paper)}
+.tiers{display:grid;gap:0;border-top:1px solid var(--line)}
+.tier{
+  display:grid;gap:.9rem 2.2rem;padding-block:2.1rem;border-bottom:1px solid var(--line);
+  align-items:start;
+}
+@media(min-width:900px){
+  .tier{grid-template-columns:14rem 1fr 11rem}
+}
+.tier-name{margin:0;font-size:1.22rem;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+.tier-when{margin:.3rem 0 0;font-size:.88rem;color:#666}
+.tier-body p{margin:0 0 .7rem;color:#333;max-width:var(--measure)}
+.tier-body ul{margin:0;padding-left:1.05rem;color:#555;font-size:.93rem}
+.tier-body li{margin-bottom:.22rem}
+.tier-price{display:flex;flex-direction:column;gap:.15rem}
+.tier-price .amount{font-weight:900;font-size:1.75rem;letter-spacing:-.035em;line-height:1}
+.tier-price .unit{font-size:.83rem;color:#666;font-weight:500}
+.tier-price .term{font-size:.83rem;color:#666}
+.tier--lead{border-left:4px solid var(--green);padding-left:1.15rem}
+.tier--lead .tier-price .amount{color:var(--green-deep)}
+@media(min-width:900px){
+  .tier--lead{margin-left:-1.15rem}
+}
+.tier-flag{
+  display:inline-block;margin-top:.5rem;font-size:.78rem;font-weight:700;color:var(--green-deep);
+}
+.rate{
+  margin-top:2.25rem;padding:1.5rem 1.6rem;background:var(--panel);border-left:4px solid var(--ink);
+}
+.rate h3{margin:0 0 .5rem;font-size:1.05rem;font-weight:800;letter-spacing:-.02em}
+.rate p{margin:0;color:#3a3a3a;font-size:.96rem;max-width:44rem}
+.rate strong{font-weight:800}
+
+/* CTA */
+.cta{background:var(--ink);color:#fff;padding-block:clamp(3rem,7vw,4.75rem)}
+.cta-grid{display:grid;gap:2rem;align-items:center}
+@media(min-width:880px){ .cta-grid{grid-template-columns:1.25fr .75fr} }
+.cta h2{margin:0 0 .9rem;font-weight:900;font-size:clamp(1.9rem,5vw,2.85rem);letter-spacing:-.035em;line-height:1.03}
+.cta h2 span{color:var(--green)}
+.cta p{margin:0;color:#C8C8C8;max-width:var(--measure)}
+.cta-actions{display:flex;flex-direction:column;gap:.7rem}
+.btn-lime{background:var(--green);color:#0d1a02;border-color:var(--green);text-align:center}
+.btn-lime:hover{background:#9BD64C;border-color:#9BD64C}
+.btn-outline{background:transparent;color:#fff;border-color:#4a4a4a;text-align:center}
+.btn-outline:hover{border-color:#fff}
+
+/* footer */
+.site-foot{padding-block:2.25rem;font-size:.87rem;color:#666}
+.foot-inner{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center}
+.foot-links{display:flex;gap:1.35rem;flex-wrap:wrap}
+.foot-links a{text-decoration:none;color:#666}
+.foot-links a:hover{color:#000}
+
+:focus-visible{outline:3px solid var(--green-deep);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href="#top" aria-label="NOUVO tech Cloud Solutions, home">
+      <svg class="mark" viewBox="-42 -38 84 92" aria-hidden="true">
+        <g fill="#8CC63F">
+          <circle cx="0" cy="-30" r="5"/><circle cx="-15" cy="-22" r="5"/><circle cx="15" cy="-22" r="5"/>
+          <circle cx="-30" cy="-14" r="5"/><circle cx="0" cy="-14" r="5"/><circle cx="30" cy="-14" r="5"/>
+          <circle cx="-15" cy="-6" r="5"/><circle cx="15" cy="-6" r="5"/><circle cx="0" cy="2" r="5"/>
+        </g>
+        <g fill="#000">
+          <circle cx="-30" cy="0" r="5"/><circle cx="-15" cy="8" r="5"/><circle cx="-30" cy="14" r="5"/>
+          <circle cx="-15" cy="22" r="5"/><circle cx="-30" cy="28" r="5"/><circle cx="-15" cy="36" r="5"/>
+          <circle cx="0" cy="16" r="5"/><circle cx="0" cy="30" r="5"/><circle cx="0" cy="44" r="5"/>
+        </g>
+        <g fill="#939598">
+          <circle cx="30" cy="0" r="5"/><circle cx="15" cy="8" r="5"/><circle cx="30" cy="14" r="5"/>
+          <circle cx="15" cy="22" r="5"/><circle cx="30" cy="28" r="5"/><circle cx="15" cy="36" r="5"/>
+        </g>
+      </svg>
+      <span>
+        <span class="word">NOUVO<em>tech</em></span>
+        <span class="sub">CLOUD SOLUTIONS</span>
+      </span>
+    </a>
+
+    <nav class="head-nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#process">How it works</a>
+      <a href="#fit">Who we work with</a>
+    </nav>
+
+    <a class="head-cta" href="#contact">Book a call</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1><span class="rule" aria-hidden="true"></span>Your cloud should cost less and break less.</h1>
+        <p>We migrate mid-market companies onto AWS and Azure, then secure and tune what we build. Architect-level work, without the retainer of a big consultancy.</p>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="#contact">Book a call</a>
+          <a class="btn btn-ghost" href="#services">See what we do</a>
+        </div>
+      </div>
+
+      <div>
+        <svg class="field" viewBox="0 0 420 300" role="img"
+             aria-label="Diagram: scattered legacy servers on the left consolidating into a structured cloud platform on the right.">
+          <g id="dots"></g>
+        </svg>
+        <div class="field-key">
+          <span><i style="background:var(--gray-soft)"></i>Where you are now</span>
+          <span><i style="background:var(--ink)"></i>What we build</span>
+          <span><i style="background:var(--green)"></i>What you run on</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CREDENTIALS ============ -->
+  <section class="creds">
+    <div class="wrap creds-inner">
+      <h2>Certified at the top tier on both major clouds</h2>
+      <ul>
+        <li>AWS Solutions Architect<small>Professional</small></li>
+        <li>Microsoft Azure Solutions Architect<small>Expert</small></li>
+        <li>Microsoft Cloud and AI Security Engineer<small>SC-500</small></li>
+        <li>CompTIA Security+<small>ce</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="band" id="services">
+    <div class="wrap">
+      <div class="band-head">
+        <h2>Three things, done properly</h2>
+        <p>Most cloud problems are one of these. We scope the work up front so you know what you are paying for before we start.</p>
+      </div>
+
+      <div class="svc">
+        <article class="svc-item">
+          <div class="svc-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+          <h3>Migration</h3>
+          <div>
+            <p>Move workloads off aging hardware or a datacenter contract you are trying to exit, without taking the business offline to do it.</p>
+            <ul>
+              <li>Dependency mapping and a migration plan you can actually read</li>
+              <li>Landing zone, identity, and network foundations built once, correctly</li>
+              <li>Cutover run on a schedule that fits your business, not ours</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="svc-item">
+          <div class="svc-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+          <h3>Security and compliance</h3>
+          <div>
+            <p>Lock down an environment you already have. Most mid-market cloud estates were built fast and never reviewed — that is usually where the risk is sitting.</p>
+            <ul>
+              <li>Identity, access, and permissions review across your accounts</li>
+              <li>Zero Trust controls applied where they change your exposure</li>
+              <li>Evidence and documentation your auditor will accept</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="svc-item">
+          <div class="svc-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+          <h3>Cost reduction</h3>
+          <div>
+            <p>Cloud bills grow quietly. We find what you are paying for and no longer using, and right-size the rest.</p>
+            <ul>
+              <li>Line-by-line review of spend across accounts and subscriptions</li>
+              <li>Right-sizing, commitment planning, and orphaned resource cleanup</li>
+              <li>Tagging and reporting so the next surprise does not happen</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section class="band pricing" id="pricing">
+    <div class="wrap">
+      <div class="band-head">
+        <h2>What it costs</h2>
+        <p>Fixed scope, fixed price. You approve the number before work starts, and it does not move unless you change what you asked for.</p>
+      </div>
+
+      <div class="tiers">
+
+        <article class="tier tier--lead">
+          <div>
+            <h3 class="tier-name">Cloud assessment</h3>
+            <p class="tier-when">1 to 2 weeks</p>
+            <span class="tier-flag">Where most engagements start</span>
+          </div>
+          <div class="tier-body">
+            <p>A full read of what you are running today and what it is costing you, delivered as a written report you own outright.</p>
+            <ul>
+              <li>Inventory of workloads, accounts, and spend</li>
+              <li>Security and identity findings ranked by actual risk</li>
+              <li>Prioritized roadmap with cost estimates per item</li>
+              <li>Ninety-minute walkthrough with your team</li>
+            </ul>
+          </div>
+          <div class="tier-price">
+            <span class="amount">$2,500</span>
+            <span class="unit">fixed</span>
+            <span class="term">Credited against the work if you continue</span>
+          </div>
+        </article>
+
+        <article class="tier">
+          <div>
+            <h3 class="tier-name">Migration</h3>
+            <p class="tier-when">6 to 12 weeks, scoped per project</p>
+          </div>
+          <div class="tier-body">
+            <p>Moving workloads onto AWS or Azure, including the foundations underneath them. Priced after the assessment, once we know what is actually there.</p>
+            <ul>
+              <li>Landing zone, identity, and network build</li>
+              <li>Workload migration in approved stages</li>
+              <li>Cutover planning and execution</li>
+              <li>Runbooks and handover to your team</li>
+            </ul>
+          </div>
+          <div class="tier-price">
+            <span class="amount">From $12,000</span>
+            <span class="unit">per project</span>
+            <span class="term">Billed against milestones, not hours</span>
+          </div>
+        </article>
+
+        <article class="tier">
+          <div>
+            <h3 class="tier-name">Security review</h3>
+            <p class="tier-when">2 to 4 weeks</p>
+          </div>
+          <div class="tier-body">
+            <p>For environments that are already live. We find what is exposed, fix what we can, and document the rest so your team or your auditor can act on it.</p>
+            <ul>
+              <li>Identity, access, and permission review across accounts</li>
+              <li>Configuration and posture assessment against a named framework</li>
+              <li>Remediation of agreed high-priority findings</li>
+              <li>Evidence pack suitable for audit</li>
+            </ul>
+          </div>
+          <div class="tier-price">
+            <span class="amount">From $6,500</span>
+            <span class="unit">fixed</span>
+            <span class="term">Scope set after a short call</span>
+          </div>
+        </article>
+
+        <article class="tier">
+          <div>
+            <h3 class="tier-name">Ongoing support</h3>
+            <p class="tier-when">Monthly, cancel with 30 days notice</p>
+          </div>
+          <div class="tier-body">
+            <p>For teams who want an architect on call after the build is done. A set number of hours each month for changes, reviews, and questions.</p>
+            <ul>
+              <li>Twenty hours per month of architecture and engineering time</li>
+              <li>Monthly cost and security review</li>
+              <li>Direct access by email and shared channel</li>
+            </ul>
+          </div>
+          <div class="tier-price">
+            <span class="amount">$3,200</span>
+            <span class="unit">per month</span>
+            <span class="term">Unused hours do not roll over</span>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="rate">
+        <h3>Prefer to work hourly?</h3>
+        <p>Some projects are too open-ended to price up front. For those we bill at <strong>$165 per hour</strong>, invoiced every two weeks with a written summary of what was done. We will tell you honestly which model fits your situation better — fixed price is usually cheaper for you when the scope is clear.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROCESS ============ -->
+  <section class="band" id="process" style="background:var(--paper)">
+    <div class="wrap">
+      <div class="band-head">
+        <h2>How an engagement runs</h2>
+        <p>Four stages. You get a fixed scope and a written plan before any work starts.</p>
+      </div>
+      <div class="steps">
+        <article class="step">
+          <h3>Call</h3>
+          <p>Thirty minutes. You describe the environment and what is going wrong. No deck.</p>
+        </article>
+        <article class="step">
+          <h3>Assessment</h3>
+          <p>We review what you are running and hand back findings, priorities, and a cost estimate.</p>
+        </article>
+        <article class="step">
+          <h3>Build</h3>
+          <p>Work happens in defined stages with a demo at the end of each one. You approve before we move on.</p>
+        </article>
+        <article class="step">
+          <h3>Handover</h3>
+          <p>Documentation, runbooks, and a walkthrough with your team. You are not locked into us.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FIT ============ -->
+  <section class="band fit" id="fit">
+    <div class="wrap fit-grid">
+      <div>
+        <h2>Built for the middle of the market</h2>
+        <p>Too big for a generalist IT shop that treats cloud as a side service. Too small to justify a Big Four engagement and the headcount that comes with it.</p>
+        <p>That gap is where we work.</p>
+      </div>
+      <div>
+        <ul class="fit-list">
+          <li>
+            <svg class="tick" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10.5l4.5 4.5L17 5.5" fill="none" stroke="#8CC63F" stroke-width="3" stroke-linecap="square"/></svg>
+            <span><b>50 to 500 employees</b>, with a small internal IT team carrying more than it should</span>
+          </li>
+          <li>
+            <svg class="tick" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10.5l4.5 4.5L17 5.5" fill="none" stroke="#8CC63F" stroke-width="3" stroke-linecap="square"/></svg>
+            <span><b>Already on AWS or Azure</b> but unsure whether it was set up correctly</span>
+          </li>
+          <li>
+            <svg class="tick" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10.5l4.5 4.5L17 5.5" fill="none" stroke="#8CC63F" stroke-width="3" stroke-linecap="square"/></svg>
+            <span><b>Facing a deadline</b> — a datacenter exit, an audit, or a bill that doubled</span>
+          </li>
+          <li>
+            <svg class="tick" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10.5l4.5 4.5L17 5.5" fill="none" stroke="#8CC63F" stroke-width="3" stroke-linecap="square"/></svg>
+            <span><b>Want the work documented</b> so your team can run it after we leave</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="cta" id="contact">
+    <div class="wrap cta-grid">
+      <div>
+        <h2>Tell us what is <span>breaking.</span></h2>
+        <p>Send a short description of your environment and what you are trying to fix. You will get a straight answer on whether we can help, and roughly what it would cost.</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn-lime" href="mailto:hello@nouvotech.com?subject=Cloud%20consultation">Email us</a>
+        <a class="btn btn-outline" href="tel:+10000000000">Call the office</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-inner">
+    <div>NOUVO tech Cloud Solutions — Tampa, Florida</div>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#process">How it works</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.linkedin.com">LinkedIn</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+/* Hero dot field: legacy sprawl on the left resolving into a structured
+   cloud block on the right. One orchestrated reveal on load, then still. */
+(function(){
+  var g = document.getElementById('dots');
+  if(!g) return;
+
+  var COLS = 14, ROWS = 10, GAP = 28, R = 5.4, X0 = 22, Y0 = 26;
+  var frag = document.createDocumentFragment();
+  var seq = [];
+
+  for(var c=0;c<COLS;c++){
+    for(var r=0;r<ROWS;r++){
+      // left side: sparse, irregular legacy sprawl
+      var isLeft = c < 5;
+      if(isLeft && ((c*17 + r*11) % 8 >= 3)) continue;
+
+      // right side: solid structured block with a green top surface
+      if(!isLeft){
+        var inBlock = (c >= 7) && (r >= 2) && (r <= 8);
+        if(!inBlock) continue;
+      }
+
+      var cx = X0 + c*GAP, cy = Y0 + r*GAP;
+      var cls;
+      if(isLeft) cls = 'legacy';
+      else if(r <= 3) cls = 'cloud';
+      else if(c >= 11) cls = 'mid';
+      else cls = 'core';
+
+      var el = document.createElementNS('http://www.w3.org/2000/svg','circle');
+      el.setAttribute('cx',cx); el.setAttribute('cy',cy); el.setAttribute('r',R);
+      el.setAttribute('class',cls);
+      el.style.transformOrigin = cx+'px '+cy+'px';
+      frag.appendChild(el);
+      seq.push({el:el, order:c*ROWS + r});
+    }
+  }
+  g.appendChild(frag);
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){
+    seq.forEach(function(d){ d.el.style.opacity = 1; });
+    return;
+  }
+  seq.sort(function(a,b){ return a.order - b.order; });
+  seq.forEach(function(d,i){ d.el.style.animationDelay = (i*14) + 'ms'; });
+  document.body.classList.add('anim');
+})();
+</script>
+
+</body>
+</html>
